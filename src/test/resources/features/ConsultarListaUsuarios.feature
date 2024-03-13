@@ -75,13 +75,3 @@ Cenário: Validar Consultar Lista de Produtos Sucesso
 	E verifico no body "[1].company" que há o campo "bs"
 	E verifico que o valor do campo "[1].company.bs" é "synergize scalable supply-chains"
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	

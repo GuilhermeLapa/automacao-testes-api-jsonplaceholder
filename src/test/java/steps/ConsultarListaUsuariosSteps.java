@@ -10,8 +10,8 @@ public class ConsultarListaUsuariosSteps {
 	    ConsultarListaUsuariosTests.consultarListaUsuarios();
 	}
 	@Então("verifico status code {int}")
-	public void verifico_status_code(Integer statusCode) {
-		ConsultarListaUsuariosTests.verificarStatusCode(statusCode);
+	public void verifico_status_code(Integer statusCodeEsperado) {
+		ConsultarListaUsuariosTests.verificarStatusCode(statusCodeEsperado);
 	}
 	@Então("verifico que há uma lista no body {string}")
 	public void verifico_que_há_uma_lista_no_body(String jsonPathLista) {
@@ -22,8 +22,8 @@ public class ConsultarListaUsuariosSteps {
 		ConsultarListaUsuariosTests.verificarCampoBodyResponse(jsonPath, nomeCampo);
 	}
 	@Então("verifico que o valor do campo {string} é {float}")
-	public void verifico_que_o_valor_do_campo_é(String jsonPathCampo, float valor) {
-		ConsultarListaUsuariosTests.verificarValorCampoInteiro(jsonPathCampo, valor);
+	public void verifico_que_o_valor_do_campo_é(String jsonPathCampo, float valorEsperado) {
+		ConsultarListaUsuariosTests.verificarValorCampoNumerico(jsonPathCampo, valorEsperado);
 	}
 	@Então("verifico que o valor do campo {string} é {string}")
 	public void verifico_que_o_valor_do_campo_é(String jsonPathCampo, String valor) {

@@ -17,8 +17,9 @@ public class ConsultarListaUsuariosTests extends Requisicoes {
 		ConsultarListaUsuariosTests.response= request.get();
 	}
 	
-	public static void verificarStatusCode(int statusCode) {
-		Assert.assertTrue(response.statusCode() == statusCode);
+	public static void verificarStatusCode(int statusCodeEsperado) {
+		int statusCodeResponse= response.statusCode();
+		Assert.assertTrue(statusCodeResponse == statusCodeEsperado);
 	}
 	
 	public static void verificarListaBodyResponse(String jsonPathLista) {
@@ -29,11 +30,12 @@ public class ConsultarListaUsuariosTests extends Requisicoes {
 		Assert.assertTrue(response.getBody().jsonPath().get(jsonPath).toString().contains(nomeCampo));
 	}
 	
-	public static void verificarValorCampoInteiro(String jsonPathCampo, float valor) {
-		Assert.assertTrue(valor == response.getBody().jsonPath().getFloat(jsonPathCampo));
+	public static void verificarValorCampoNumerico(String jsonPathCampo, float valorEsperado) {
+		float valorResponse= response.getBody().jsonPath().getFloat(jsonPathCampo);
+		Assert.assertTrue(valorResponse == valorEsperado);
 	}
 	
 	public static void verificarValorCampoString(String jsonPathCampo, String valor) {
-		Assert.assertEquals(valor, response.getBody().jsonPath().get(jsonPathCampo).toString());
+		Assert.assertEquals(valor, response.getBody().jsonPath().getString(jsonPathCampo).toString());
 	}
 }
