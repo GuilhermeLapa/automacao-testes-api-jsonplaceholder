@@ -14,9 +14,9 @@ Cenário: Validar Criar Nova Postagem Sucesso
 	E verifico no body "$" que há o campo "id"
 	E verifico que o valor do campo "id" é 101
 	E verifico no body "$" que há o campo "title"
-	E verifico que o valor do campo "title" é "teste"
+	E verifico que o valor do campo "title" é "<title>"
 	E verifico no body "$" que há o campo "body"
-	E verifico que o valor do campo "body" é "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+	E verifico que o valor do campo "body" é "<body>"
 	E verifico no body "$" que há o campo "userId"
 	E verifico que o valor do campo "userId" é 1
 	Exemplos:

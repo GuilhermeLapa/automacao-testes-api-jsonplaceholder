@@ -35,7 +35,8 @@ public class ConsultarListaUsuariosTests extends Requisicoes {
 		Assert.assertTrue(valorResponse == valorEsperado);
 	}
 	
-	public static void verificarValorCampoString(String jsonPathCampo, String valor) {
-		Assert.assertEquals(valor, response.getBody().jsonPath().getString(jsonPathCampo).toString());
+	public static void verificarValorCampoString(String jsonPathCampo, String valorEsperado) {
+		String valorResponse= response.getBody().jsonPath().getString(jsonPathCampo).toString();
+		Assert.assertEquals(valorEsperado, valorResponse);
 	}
 }

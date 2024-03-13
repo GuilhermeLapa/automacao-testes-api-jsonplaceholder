@@ -23,12 +23,11 @@ public class CriarPostagemTests extends Requisicoes {
 			CriarPostagemTests.bodyRequest= new JSONObject();
 		}
 		
-		if(valor instanceof String) {
+		try {
+			CriarPostagemTests.bodyRequest.put(nomeCampo, (int) valor);
+		}
+		catch(Exception e) {
 			CriarPostagemTests.bodyRequest.put(nomeCampo, (String) valor);
 		}
-		else
-			if(valor instanceof Integer) {
-				CriarPostagemTests.bodyRequest.put(nomeCampo, (Integer) valor);
-			}
 	}
 }
