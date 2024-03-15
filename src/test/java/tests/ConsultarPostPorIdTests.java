@@ -9,6 +9,7 @@ import io.restassured.specification.RequestSpecification;
 
 public class ConsultarPostPorIdTests extends Requisicoes {
 	private static final String urlConsultaPostagemId= "https://jsonplaceholder.typicode.com/posts/";
+	public static Object idPostagem= null;
 	
 	public static void consultarPostagemId() {
 		RequestSpecification request= RestAssured.given();
@@ -18,12 +19,15 @@ public class ConsultarPostPorIdTests extends Requisicoes {
 		ConsultarPostPorIdTests.response= request.get();
 	}
 	
-	public static void salvarDadosPostagemConsultada() {
-		if(ConsultarPostPorIdTests.bodyResponse == null) {
-			ConsultarPostPorIdTests.bodyResponse= new JSONObject();
-		}
-		
+	public static void salvarIdDaPostagemCadastrada() {
 		if(ConsultarPostPorIdTests.response != null) {
+			ConsultarPostPorIdTests.idPostagem= ConsultarPostPorIdTests.bodyResponse.get("id");
+		}
+	}
+	
+	public static void salvarDadosPostagemConsultada() {
+		if(ConsultarPostPorIdTests.response != null) {
+			ConsultarPostPorIdTests.bodyResponse= new JSONObject();
 			ConsultarPostPorIdTests.bodyResponse.put("id", ConsultarPostPorIdTests.response.getBody().jsonPath().getInt("id"));
 			//idPost= (Integer) AtualizarPostagemTests.bodyResponse.get("id");
 			ConsultarPostPorIdTests.bodyResponse.put("userId", ConsultarPostPorIdTests.response.getBody().jsonPath().getInt("userId"));

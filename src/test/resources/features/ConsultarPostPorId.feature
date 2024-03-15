@@ -4,7 +4,7 @@
 @Testar
 Funcionalidade: GET - Consultar postagem por Id
 
-Cenário: Validar Consultar postagem por Id Sucesso
+Cenário: Validar Consultar Postagem por Id Sucesso
 	Dado que possuo valor <id> para campo "id"
 	Quando consulto uma postagem por id
 	Então  verifico status code 200
@@ -19,3 +19,17 @@ Cenário: Validar Consultar postagem por Id Sucesso
 	Exemplos:
 	| id |
 	| 1  |
+
+Cenário: Validar Postagem Não Encontrada
+	Dado que possuo valor <userId> para campo "userId"
+	E que possuo valor <id> para campo "id"
+	E que possuo valor <title> para campo "title"
+	E que possuo valor <body> para campo "body"
+	Quando crio uma nova postagem
+	E verifico status code 201
+	E salvo o id da postagem cadastrada para consultar
+	E consulto uma postagem por id
+	Então verifico status code 404
+	Exemplos:
+	| userId | id  | title | body                                                    |
+	| 1      | 101 | teste | Lorem ipsum dolor sit amet, consectetur adipiscing elit |

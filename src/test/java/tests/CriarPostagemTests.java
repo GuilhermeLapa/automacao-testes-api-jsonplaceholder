@@ -11,11 +11,12 @@ public class CriarPostagemTests extends Requisicoes {
 	
 	public static void criarPostagem() {
 		RequestSpecification request= RestAssured.given();
-		request.baseUri(urlCriarPostagem);
+		request.baseUri(CriarPostagemTests.urlCriarPostagem);
 		Header header= new Header("Content-Type", "application/json");
 		request.header(header);
 		request.body(CriarPostagemTests.bodyRequest.toJSONString());
-		ConsultarListaUsuariosTests.response= request.post();
+		CriarPostagemTests.response= request.post();
+		CriarPostagemTests.salvarBodyResponseCriarPostagem();
 	}
 	
 	public static void inicializarBodyRequest(Object valor, String nomeCampo) {
@@ -28,6 +29,16 @@ public class CriarPostagemTests extends Requisicoes {
 		}
 		catch(Exception e) {
 			CriarPostagemTests.bodyRequest.put(nomeCampo, (String) valor);
+		}
+	}
+	
+	private static void salvarBodyResponseCriarPostagem() {
+		if(CriarPostagemTests.response != null) {
+			CriarPostagemTests.bodyResponse= new JSONObject();
+			CriarPostagemTests.bodyResponse.put("id", (int) CriarPostagemTests.response.getBody().jsonPath().getInt("id"));
+			CriarPostagemTests.bodyResponse.put("userId", (int) CriarPostagemTests.response.getBody().jsonPath().getInt("userId"));
+			CriarPostagemTests.bodyResponse.put("title", (String) CriarPostagemTests.response.getBody().jsonPath().getString("title"));
+			CriarPostagemTests.bodyResponse.put("body", (String) CriarPostagemTests.response.getBody().jsonPath().getString("body"));
 		}
 	}
 }
