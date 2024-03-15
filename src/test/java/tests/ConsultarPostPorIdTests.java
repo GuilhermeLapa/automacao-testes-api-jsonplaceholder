@@ -17,6 +17,7 @@ public class ConsultarPostPorIdTests extends Requisicoes {
 		Header header= new Header("Constant-Type", "application/json");
 		request.header(header);
 		ConsultarPostPorIdTests.response= request.get();
+		ConsultarPostPorIdTests.salvarDadosPostagemConsultada();
 	}
 	
 	public static void salvarIdDaPostagemCadastrada() {
@@ -25,14 +26,15 @@ public class ConsultarPostPorIdTests extends Requisicoes {
 		}
 	}
 	
-	public static void salvarDadosPostagemConsultada() {
+	private static void salvarDadosPostagemConsultada() {
 		if(ConsultarPostPorIdTests.response != null) {
-			ConsultarPostPorIdTests.bodyResponse= new JSONObject();
-			ConsultarPostPorIdTests.bodyResponse.put("id", ConsultarPostPorIdTests.response.getBody().jsonPath().getInt("id"));
-			//idPost= (Integer) AtualizarPostagemTests.bodyResponse.get("id");
-			ConsultarPostPorIdTests.bodyResponse.put("userId", ConsultarPostPorIdTests.response.getBody().jsonPath().getInt("userId"));
-			ConsultarPostPorIdTests.bodyResponse.put("title", ConsultarPostPorIdTests.response.getBody().jsonPath().getString("title"));
-			ConsultarPostPorIdTests.bodyResponse.put("body", ConsultarPostPorIdTests.response.getBody().jsonPath().getString("body"));
+			if(ConsultarPostPorIdTests.response.statusCode() == 200) {
+				ConsultarPostPorIdTests.bodyResponse= new JSONObject();
+				ConsultarPostPorIdTests.bodyResponse.put("id", ConsultarPostPorIdTests.response.getBody().jsonPath().getInt("id"));
+				ConsultarPostPorIdTests.bodyResponse.put("userId", ConsultarPostPorIdTests.response.getBody().jsonPath().getInt("userId"));
+				ConsultarPostPorIdTests.bodyResponse.put("title", ConsultarPostPorIdTests.response.getBody().jsonPath().getString("title"));
+				ConsultarPostPorIdTests.bodyResponse.put("body", ConsultarPostPorIdTests.response.getBody().jsonPath().getString("body"));
+			}
 		}
 		else {
 			fail("Erro: Consulta da postagem não realizada para atualização.");

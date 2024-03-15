@@ -9,10 +9,6 @@ public class ConsultarPostPorIdSteps {
 	public void consulto_uma_postagem_por_id() {
 	    ConsultarPostPorIdTests.consultarPostagemId();
 	}
-	@E("salvo os dados da postagem consultada")
-	public void salvo_os_dados_da_postagem_consultada() {
-		ConsultarPostPorIdTests.salvarDadosPostagemConsultada();
-	}
 	@E("salvo o id da postagem cadastrada para consultar")
 	public void salvo_o_id_da_postagem_cadastrada_para_consultar() {
 		ConsultarPostPorIdTests.salvarIdDaPostagemCadastrada();

@@ -7,7 +7,6 @@ Funcionalidade: PUT - Atualizar postagem
 Cenário: Validar Atualizar Nova Postagem Sucesso
 	Dado que possuo valor <id> para campo "id"
 	Quando consulto uma postagem por id
-	E salvo os dados da postagem consultada
 	E que possuo valor <userId> para campo "userId"
 	E que possuo valor <title> para campo "title"
 	E que possuo valor <body> para campo "body"
@@ -29,7 +28,6 @@ Cenário: Validar Atualizar Nova Postagem Sucesso
 Cenário: Validar Atualizar Apenas Title da Postagem Sucesso
 	Dado que possuo valor <id> para campo "id"
 	Quando consulto uma postagem por id
-	E salvo os dados da postagem consultada
 	E que possuo valor <title> para campo "title"
 	E que possuo id de uma postagem consultada para atualização
 	E atualizo uma postagem
@@ -46,7 +44,6 @@ Cenário: Validar Atualizar Apenas Title da Postagem Sucesso
 Cenário: Validar Atualizar Apenas Body da Postagem Sucesso
 	Dado que possuo valor <id> para campo "id"
 	Quando consulto uma postagem por id
-	E salvo os dados da postagem consultada
 	E que possuo valor <body> para campo "body"
 	E que possuo id de uma postagem consultada para atualização
 	E atualizo uma postagem
@@ -63,7 +60,6 @@ Cenário: Validar Atualizar Apenas Body da Postagem Sucesso
 Cenário: Validar Atualizar Apenas UserId da Postagem Sucesso
 	Dado que possuo valor <id> para campo "id"
 	Quando consulto uma postagem por id
-	E salvo os dados da postagem consultada
 	E que possuo valor <userId> para campo "userId"
 	E que possuo id de uma postagem consultada para atualização
 	E atualizo uma postagem

@@ -34,11 +34,13 @@ public class CriarPostagemTests extends Requisicoes {
 	
 	private static void salvarBodyResponseCriarPostagem() {
 		if(CriarPostagemTests.response != null) {
-			CriarPostagemTests.bodyResponse= new JSONObject();
-			CriarPostagemTests.bodyResponse.put("id", (int) CriarPostagemTests.response.getBody().jsonPath().getInt("id"));
-			CriarPostagemTests.bodyResponse.put("userId", (int) CriarPostagemTests.response.getBody().jsonPath().getInt("userId"));
-			CriarPostagemTests.bodyResponse.put("title", (String) CriarPostagemTests.response.getBody().jsonPath().getString("title"));
-			CriarPostagemTests.bodyResponse.put("body", (String) CriarPostagemTests.response.getBody().jsonPath().getString("body"));
+			if(ConsultarPostPorIdTests.response.statusCode() == 200) {
+				CriarPostagemTests.bodyResponse= new JSONObject();
+				CriarPostagemTests.bodyResponse.put("id", (int) CriarPostagemTests.response.getBody().jsonPath().getInt("id"));
+				CriarPostagemTests.bodyResponse.put("userId", (int) CriarPostagemTests.response.getBody().jsonPath().getInt("userId"));
+				CriarPostagemTests.bodyResponse.put("title", (String) CriarPostagemTests.response.getBody().jsonPath().getString("title"));
+				CriarPostagemTests.bodyResponse.put("body", (String) CriarPostagemTests.response.getBody().jsonPath().getString("body"));
+			}
 		}
 	}
 }
