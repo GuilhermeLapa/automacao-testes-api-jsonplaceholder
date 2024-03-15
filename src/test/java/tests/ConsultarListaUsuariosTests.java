@@ -11,32 +11,32 @@ public class ConsultarListaUsuariosTests extends Requisicoes {
 	
 	public static void consultarListaUsuarios() {
 		RequestSpecification request= RestAssured.given();
-		request.baseUri(urlListaUsuarios);
+		request.baseUri(ConsultarListaUsuariosTests.urlListaUsuarios);
 		Header header= new Header("Content-Type", "application/json");
 		request.header(header);
 		ConsultarListaUsuariosTests.response= request.get();
 	}
 	
 	public static void verificarStatusCode(int statusCodeEsperado) {
-		int statusCodeResponse= response.statusCode();
+		int statusCodeResponse= ConsultarListaUsuariosTests.response.statusCode();
 		Assert.assertTrue(statusCodeResponse == statusCodeEsperado);
 	}
 	
 	public static void verificarListaBodyResponse(String jsonPathLista) {
-		Assert.assertTrue(response.getBody().jsonPath().getList(jsonPathLista).size() > 1);
+		Assert.assertTrue(ConsultarListaUsuariosTests.response.getBody().jsonPath().getList(jsonPathLista).size() > 1);
 	}
 	
 	public static void verificarCampoBodyResponse(String jsonPath, String nomeCampo) {
-		Assert.assertTrue(response.getBody().jsonPath().get(jsonPath).toString().contains(nomeCampo));
+		Assert.assertTrue(ConsultarListaUsuariosTests.response.getBody().jsonPath().get(jsonPath).toString().contains(nomeCampo));
 	}
 	
 	public static void verificarValorCampoNumerico(String jsonPathCampo, float valorEsperado) {
-		float valorResponse= response.getBody().jsonPath().getFloat(jsonPathCampo);
+		float valorResponse= ConsultarListaUsuariosTests.response.getBody().jsonPath().getFloat(jsonPathCampo);
 		Assert.assertTrue(valorResponse == valorEsperado);
 	}
 	
 	public static void verificarValorCampoString(String jsonPathCampo, String valorEsperado) {
-		String valorResponse= response.getBody().jsonPath().getString(jsonPathCampo).toString();
+		String valorResponse= ConsultarListaUsuariosTests.response.getBody().jsonPath().getString(jsonPathCampo).toString();
 		Assert.assertEquals(valorEsperado, valorResponse);
 	}
 }

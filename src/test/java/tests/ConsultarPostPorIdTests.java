@@ -21,8 +21,11 @@ public class ConsultarPostPorIdTests extends Requisicoes {
 	}
 	
 	public static void salvarIdDaPostagemCadastrada() {
-		if(ConsultarPostPorIdTests.response != null) {
+		if(ConsultarPostPorIdTests.bodyResponse != null) {
 			ConsultarPostPorIdTests.idPostagem= ConsultarPostPorIdTests.bodyResponse.get("id");
+		}
+		else {
+			fail("Erro: Não foi possível salvar id da postagem cadastrada.");
 		}
 	}
 	

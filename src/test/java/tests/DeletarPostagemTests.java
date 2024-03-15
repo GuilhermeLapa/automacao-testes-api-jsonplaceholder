@@ -1,5 +1,6 @@
 package tests;
 
+import static org.junit.Assert.fail;
 import core.Requisicoes;
 import io.restassured.RestAssured;
 import io.restassured.http.Header;
@@ -11,7 +12,7 @@ public class DeletarPostagemTests extends Requisicoes {
 	
 	public static void deletarPostagem() {
 		RequestSpecification request= RestAssured.given();
-		request.baseUri(urlDeletarPostagem + DeletarPostagemTests.idPost);
+		request.baseUri(DeletarPostagemTests.urlDeletarPostagem + DeletarPostagemTests.idPost);
 		Header header= new Header("Content-Type", "application/json");
 		request.header(header);
 		DeletarPostagemTests.response= request.delete();
@@ -19,10 +20,19 @@ public class DeletarPostagemTests extends Requisicoes {
 	
 	public static void inicializarValorId(Object valorId) {
 		try {
-			idPost= (int) valorId;
+			DeletarPostagemTests.idPost= (int) valorId;
 		}
 		catch(Exception e) {
-			idPost= (String) valorId;
+			DeletarPostagemTests.idPost= (String) valorId;
+		}
+	}
+	
+	public static void inicializarValorId() {
+		if(DeletarPostagemTests.bodyResponse != null) {
+			DeletarPostagemTests.idPost= DeletarPostagemTests.bodyResponse.get("id");
+		}
+		else {
+			fail("Erro: Não foi possível salvar id da postagem cadastrada.");
 		}
 	}
 }

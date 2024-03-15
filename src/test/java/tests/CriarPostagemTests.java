@@ -34,7 +34,7 @@ public class CriarPostagemTests extends Requisicoes {
 	
 	private static void salvarBodyResponseCriarPostagem() {
 		if(CriarPostagemTests.response != null) {
-			if(ConsultarPostPorIdTests.response.statusCode() == 200) {
+			if(CriarPostagemTests.response.statusCode() == 201) {
 				CriarPostagemTests.bodyResponse= new JSONObject();
 				CriarPostagemTests.bodyResponse.put("id", (int) CriarPostagemTests.response.getBody().jsonPath().getInt("id"));
 				CriarPostagemTests.bodyResponse.put("userId", (int) CriarPostagemTests.response.getBody().jsonPath().getInt("userId"));
