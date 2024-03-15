@@ -19,7 +19,6 @@ Cenário: Validar Deletar postagem por Id Sucesso
 	E que possuo valor <body> para campo "body"
 	Quando crio uma nova postagem
 	E consulto uma postagem por id
-	E salvo os dados da postagem consultada
 	E deleto uma postagem por id
 	Então  verifico status code 200
 	Exemplos:
