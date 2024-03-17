@@ -8,7 +8,7 @@
 <br/>
   
 ### Descrição
-Projeto de automação de testes cmo framework **REST-Assured**. Foram desenvolvidos cenários de testes contemplando os endpoints disponíveis no *JsonPlaceholder*. [Site JsonPlaceholder](https://jsonplaceholder.typicode.com/)  
+Projeto de automação de testes com framework **REST-Assured**. Foram desenvolvidos cenários de testes contemplando os endpoints disponíveis no *JsonPlaceholder*. [Site JsonPlaceholder](https://jsonplaceholder.typicode.com/)  
 <br/>
   
 ### A instalação do projeto pode seguir da seguinte forma:
@@ -24,4 +24,7 @@ Projeto de automação de testes cmo framework **REST-Assured**. Foram desenvolv
 - Clique no botão **Selecionar pasta**.
 - Clique no botão **Finish**.
 <br/>
+<br/>
+
+###### Versões: Java 17.0.9 2023-10-17 LTS ; Rest-assured 5.4.0 ; Junit 4.13.2 ; Cucumber 7.14.0
 <br/>

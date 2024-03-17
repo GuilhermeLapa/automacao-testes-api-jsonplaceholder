@@ -5,9 +5,10 @@ import core.Requisicoes;
 import io.restassured.RestAssured;
 import io.restassured.http.Header;
 import io.restassured.specification.RequestSpecification;
+import util.Utils;
 
 public class DeletarPostagemTests extends Requisicoes {
-	private static final String urlDeletarPostagem= "https://jsonplaceholder.typicode.com/posts/";
+	private static final String urlDeletarPostagem= Utils.obterUrl("posts");
 	private static Object idPost= null;
 	
 	public static void deletarPostagem() {

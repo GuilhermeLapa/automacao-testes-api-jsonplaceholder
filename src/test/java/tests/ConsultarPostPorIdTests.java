@@ -6,9 +6,10 @@ import core.Requisicoes;
 import io.restassured.RestAssured;
 import io.restassured.http.Header;
 import io.restassured.specification.RequestSpecification;
+import util.Utils;
 
 public class ConsultarPostPorIdTests extends Requisicoes {
-	private static final String urlConsultaPostagemId= "https://jsonplaceholder.typicode.com/posts/";
+	private static final String urlConsultaPostagemId= Utils.obterUrl("posts");
 	public static Object idPostagem= null;
 	
 	public static void consultarPostagemId() {

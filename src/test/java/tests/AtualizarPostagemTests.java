@@ -5,9 +5,10 @@ import core.Requisicoes;
 import io.restassured.RestAssured;
 import io.restassured.http.Header;
 import io.restassured.specification.RequestSpecification;
+import util.Utils;
 
 public class AtualizarPostagemTests extends Requisicoes {
-	private static final String urlAtualizarPostagem= "https://jsonplaceholder.typicode.com/posts/";
+	private static final String urlAtualizarPostagem= Utils.obterUrl("posts");
 	private static Object idPost= null;
 	
 	public static void atualizarPostagem() {

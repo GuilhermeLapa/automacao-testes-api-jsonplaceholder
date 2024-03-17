@@ -5,9 +5,10 @@ import core.Requisicoes;
 import io.restassured.RestAssured;
 import io.restassured.http.Header;
 import io.restassured.specification.RequestSpecification;
+import util.Utils;
 
 public class CriarPostagemTests extends Requisicoes {
-	public static final String urlCriarPostagem= "https://jsonplaceholder.typicode.com/posts";
+	public static final String urlCriarPostagem= Utils.obterUrl("posts");
 	
 	public static void criarPostagem() {
 		RequestSpecification request= RestAssured.given();
